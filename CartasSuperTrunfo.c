@@ -1,22 +1,63 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+    //VARIAVEIS
+
+    int numeros_pontos_turisticos, populacao_cidade;
+    char nome_cidade[50], codigo_cidade[30];  // O CÓDIGO DA CIDADE TERÁ LETRAS TAMBÉM.
+    double area_cidade, pib;
+
+
+    //FUNÇÕES PARA CADASTRAS AS INFORMAÇÕES DAS CIDADES
+
+    printf("CADASTRO DAS CARTAS\n");
+
+    //CÓDIGO DA CIDADE
+    printf("Digite o código da cidade: \n");
+    scanf("%s", &codigo_cidade);
+
+    //NOME DA CIDADE
+    printf("Digite o nome da cidade: \n");
+    scanf("%s", &nome_cidade);
+
+    //POPULAÇAO DA CIDADE
+    printf("Digite a população da cidade: \n");
+    scanf("%d", &populacao_cidade);
+
+    //NÚMERO DE PONTOS TURÍSTICOS DA CIDADE
+    printf("Número de pontos turísticos da cidade: \n");
+    scanf("%d", &numeros_pontos_turisticos);
+
+    //PIB DA CIDADE
+    printf("Digite o PIB da cidade: \n");
+    scanf("%f", &pib);
+
+    //ÁREA TOTAL DA CIDADE
+    printf("Digite a área total da cidade: \n");
+    scanf("%f", &area_cidade);
     
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+
+    //FUNÇÕES PARA EXIBIR OS DADOS DAS CIDADES CADASTRADAS
+
+    printf("\nDADOS DA CIDADE CADASTRADA\n");
+
+    //NOME DA CIDADE
+    printf("CIDADE: %s\n", nome_cidade);
+
+    //CÓDIGO DA CIDADE
+    printf("CÓDIGO DA CIDADE: %s\n", codigo_cidade);
+
+    //POPULAÇAO
+    printf("POPULAÇAO: %d\n", populacao_cidade);
+
+    //PONTOS TURÍSTICOS
+    printf("PONTOS TURÍSTICOS: %d\n", numeros_pontos_turisticos);
+
+    //PIB
+    printf("PIB: %.2f\n", pib);
+
+    //ÁREA 
+    printf("ÁREA: %.2f ", area_cidade);
 
     return 0;
 }
