@@ -1,28 +1,39 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
     //VARIAVEIS
 
-    int numeros_pontos_turisticos, populacao_cidade;
-    char nome_cidade[50], codigo_cidade[30];  // O CÓDIGO DA CIDADE TERÁ LETRAS TAMBÉM.
-    double area_cidade, pib;
-
+    char estado;
+    char nome_cidade[50], codigo_cidade[20];  // O CÓDIGO DA CIDADE TERÁ LETRAS TAMBÉM.
+    unsigned long int populacao;
+    int numeros_pontos_turisticos;
+    float area, pib, densidade_populacional, pib_per_capita, super_poder;
 
     //FUNÇÕES PARA CADASTRAS AS INFORMAÇÕES DAS CIDADES
 
     printf("CADASTRO DAS CARTAS\n");
 
     //CÓDIGO DA CIDADE
+    printf("Digite o estado da cidade: \n");
+    scanf("%c", &estado);
+
+    //CÓDIGO DA CIDADE
     printf("Digite o código da cidade: \n");
     scanf("%s", &codigo_cidade);
 
+    // Limpa o buffer para evitar problemas com fgets()
+    getchar();
+
     //NOME DA CIDADE
     printf("Digite o nome da cidade: \n");
-    scanf("%s", &nome_cidade);
+    fgets(nome_cidade, sizeof(nome_cidade), stdin);
+    nome_cidade[strcspn(nome_cidade, "\n")] = '\0';
+//     scanf("%s", &nome_cidade);
 
     //POPULAÇAO DA CIDADE
     printf("Digite a população da cidade: \n");
-    scanf("%d", &populacao_cidade);
+    scanf("%lu", &populacao);
 
     //NÚMERO DE PONTOS TURÍSTICOS DA CIDADE
     printf("Número de pontos turísticos da cidade: \n");
@@ -34,30 +45,28 @@ int main() {
 
     //ÁREA TOTAL DA CIDADE
     printf("Digite a área total da cidade: \n");
-    scanf("%f", &area_cidade);
+    scanf("%f", &area);
     
+
+    densidade_populacional = populacao / area;
+    pib_per_capita = pib / populacao;
+
+    super_poder = (float)(area + pib + densidade_populacional + populacao + numeros_pontos_turisticos + pib_per_capita);
 
     //FUNÇÕES PARA EXIBIR OS DADOS DAS CIDADES CADASTRADAS
 
-    printf("\nDADOS DA CIDADE CADASTRADA\n");
-
-    //NOME DA CIDADE
-    printf("CIDADE: %s\n", nome_cidade);
-
-    //CÓDIGO DA CIDADE
-    printf("CÓDIGO DA CIDADE: %s\n", codigo_cidade);
-
-    //POPULAÇAO
-    printf("POPULAÇAO: %d\n", populacao_cidade);
-
-    //PONTOS TURÍSTICOS
-    printf("PONTOS TURÍSTICOS: %d\n", numeros_pontos_turisticos);
-
-    //PIB
-    printf("PIB: %.2f\n", pib);
-
-    //ÁREA 
-    printf("ÁREA: %.2f ", area_cidade);
+    printf("\n=============================================================================================================\n");
+    printf("Estado da cidade: %c\n", estado);
+    printf("Código da cidade: %s\n", codigo_cidade);
+    printf("Nome da cidade: %s\n", nome_cidade);
+    printf("População da cidade: %lu\n", populacao);
+    printf("Pontos turísticos da cidade: %d\n", numeros_pontos_turisticos);
+    printf("PIB da cidade: %.2f\n", pib);
+    printf("Área totam em km² da cidade: %.2f\n", area);
+    printf("Densidade populacional da cidade: %.2f\n", densidade_populacional);
+    printf("PIB per capita da cidade: %.2f\n", pib_per_capita);
+    printf("Super poder da cidade: %.2f\n", super_poder);
+    printf("=============================================================================================================\n");
 
     return 0;
 }
