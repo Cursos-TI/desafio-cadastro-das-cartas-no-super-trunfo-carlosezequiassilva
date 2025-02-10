@@ -5,7 +5,7 @@ int main() {
     //VARIAVEIS
 
     char estado;
-    char nome_cidade[50], codigo_cidade[20];  // O CÓDIGO DA CIDADE TERÁ LETRAS TAMBÉM.
+    char nome_cidade[50], codigo_cidade[20];
     unsigned long int populacao;
     int numeros_pontos_turisticos;
     float area, pib, densidade_populacional, pib_per_capita, super_poder;
@@ -14,7 +14,7 @@ int main() {
 
     printf("CADASTRO DAS CARTAS\n");
 
-    //CÓDIGO DA CIDADE
+    //ESTADO DA CIDADE
     printf("Digite o estado da cidade: \n");
     scanf("%c", &estado);
 
@@ -29,7 +29,7 @@ int main() {
     printf("Digite o nome da cidade: \n");
     fgets(nome_cidade, sizeof(nome_cidade), stdin);
     nome_cidade[strcspn(nome_cidade, "\n")] = '\0';
-//     scanf("%s", &nome_cidade);
+    //scanf("%s", &nome_cidade);
 
     //POPULAÇAO DA CIDADE
     printf("Digite a população da cidade: \n");
@@ -48,6 +48,8 @@ int main() {
     scanf("%f", &area);
     
 
+    //Calculando as médias
+    
     densidade_populacional = populacao / area;
     pib_per_capita = pib / populacao;
 
